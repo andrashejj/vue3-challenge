@@ -1,16 +1,13 @@
 <template>
   <router-link
     :to="to"
-    class="row justify-center items-end text-underline-none"
+    class="row justify-center items-end"
   >
     <q-icon
       :size="size"
       name="space_dashboard"
       class="text-primary q-mr-sm"
     ></q-icon>
-    <h1 class="text-weight-bold q-my-none text-dark" :class="textSizeClass">
-      Test_
-    </h1>
   </router-link>
 </template>
 <script lang="ts">

@@ -98,19 +98,6 @@
         </template>
       </q-list>
     </q-scroll-area>
-    <q-item dense clickable class="full-width text-negative">
-      <q-item-section avatar clickable class="q-pa-none">
-        <t-icon
-          name="sym_o_logout"
-          size="xs"
-          color="negative"
-          outline-color="grey-1"
-          inline-color="grey-3"
-          inline-size="26px"
-        ></t-icon>
-      </q-item-section>
-      <q-item-section> Logout </q-item-section>
-    </q-item>
     <div class="absolute" style="bottom: 15px; right: -17px">
       <q-btn
         dense
