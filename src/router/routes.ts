@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       { path: ROUTE_PATHS.HOME_PAGE, name: ROUTE_NAMES.HOME_PAGE, component: () => import('src/pages/index-page.vue') },
       { path: ROUTE_PATHS.CHALLENGE_ONE, name: ROUTE_NAMES.CHALLENGE_ONE, component: () => import('src/pages/challenge-one.vue') },
-      { path: ROUTE_PATHS.CHALLENGE_TWO, name: ROUTE_NAMES.CHALLENGE_TWO, component: () => import('src/pages/challenge-two.vue') },
+      { path: ROUTE_PATHS.CHALLENGE_TWO, name: ROUTE_NAMES.CHALLENGE_TWO, component: () => import('src/pages/challenge-two/challenge-two.vue') },
       { path: ROUTE_PATHS.CHALLENGE_THREE, name: ROUTE_NAMES.CHALLENGE_THREE, component: () => import('src/pages/challenge-three.vue') },
     ],
   },

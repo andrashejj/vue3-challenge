@@ -1,5 +1,8 @@
 <template>
-  <div class="q-pa-md">
+  <q-page class="q-pa-md">
+    <div class="employee-list">
+      <person-item v-for="element in persons" :key="element" :item="element"></person-item>
+    </div>
     <h1>Challenge 2</h1>
     <p>
       Welcome to Challenge 2. Your task is to create an interactive address
@@ -11,14 +14,22 @@
       </li>
     </ul>
     <router-link to="/" class="q-btn q-mt-md">Return to Home</router-link>
-  </div>
+    <q-page-sticky position="bottom-right" :offset="[18, 18]">
+      <q-btn fab icon="add" color="primary" @click="toggleDialog" />
+    </q-page-sticky>
+  </q-page>
 </template>
 
 <script>
 import { ref } from 'vue';
-
+import { onMounted } from 'vue';
+import useSharedPerson from 'src/pages/challenge-two/_composable/usePerson';
+import PersonItem from 'src/pages/challenge-two/_components/person-item.vue';
 export default {
   name: 'ChallengeTwo',
+  components: {
+    PersonItem,
+  },
   setup() {
     const tasks = ref([
       {
@@ -64,11 +75,16 @@ export default {
       },
     ]);
 
-    return { tasks };
+    //-----------
+    const { fetchingPersons, persons, toggleDialog } = useSharedPerson();
+    onMounted(() => {
+      fetchingPersons();
+    });
+
+    return { tasks, fetchingPersons, persons, toggleDialog };
   },
 };
 </script>
-
 <style scoped>
 .no-bullets {
   list-style-type: none;
