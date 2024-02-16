@@ -1,18 +1,39 @@
 import { RouteRecordRaw } from 'vue-router';
-import MainLayout from 'src/layouts/main-layout.vue';
+import MailLayout from 'src/layouts/main-layout.vue';
+
+export const ROUTE_NAMES = {
+  MAIN_LAYOUT: 'main-layout',
+  HOME_PAGE: 'home-page',
+  CHALLENGE_ONE: 'challenge-one',
+  CHALLENGE_TWO: 'challenge-two',
+  CHALLENGE_THREE: 'challenge-three'
+};
+
+export const ROUTE_PATHS = {
+  DASHBOARD: 'home-dashboard',
+  HOME_PAGE: '/',
+  CHALLENGE_ONE: '/challenge-one',
+  CHALLENGE_TWO: '/challenge-two',
+  CHALLENGE_THREE: '/challenge-three'
+};
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: MainLayout,
-    children: [{ path: '', component: () => import('pages/index-page.vue') }],
+    name: ROUTE_NAMES.MAIN_LAYOUT,
+    component: MailLayout,
+    children: [
+      { path: ROUTE_PATHS.HOME_PAGE, name: ROUTE_NAMES.HOME_PAGE, component: () => import('src/pages/index-page.vue') },
+      { path: ROUTE_PATHS.CHALLENGE_ONE, name: ROUTE_NAMES.CHALLENGE_ONE, component: () => import('src/pages/challenge-one.vue') },
+      { path: ROUTE_PATHS.CHALLENGE_TWO, name: ROUTE_NAMES.CHALLENGE_TWO, component: () => import('src/pages/challenge-two.vue') },
+      { path: ROUTE_PATHS.CHALLENGE_THREE, name: ROUTE_NAMES.CHALLENGE_THREE, component: () => import('src/pages/challenge-three.vue') },
+    ],
   },
-  // TODO: Addd here something
-
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/error/error-not-found.vue'),
+    component: () => import('src/pages/error/error-not-found.vue'),
   },
 ];
 
