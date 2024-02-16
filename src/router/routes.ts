@@ -1,10 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
-
+import MainLayout from 'src/layouts/main-layout.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    component: MainLayout,
+    children: [{ path: '', component: () => import('pages/index-page.vue') }],
   },
   // TODO: Addd here something
 
@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    component: () => import('pages/error/error-not-found.vue'),
   },
 ];
 
