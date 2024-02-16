@@ -1,7 +1,17 @@
 <template>
   <q-page class="q-pa-md">
     <div class="employee-list">
-      <person-item v-for="element in persons" :key="element" :item="element"></person-item>
+      <draggable
+        v-model="persons"
+        group="people"
+        @start="drag = true"
+        @end="drag = false"
+        item-key="id"
+      >
+        <template #item="{ element }">
+          <person-item :item="element"></person-item>
+        </template>
+      </draggable>
     </div>
     <h1>Challenge 2</h1>
     <p>
@@ -15,20 +25,25 @@
     </ul>
     <router-link to="/" class="q-btn q-mt-md">Return to Home</router-link>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn fab icon="add" color="primary" @click="toggleDialog" />
+      <q-btn fab icon="add" color="accent" @click="toggleDialog"/>
     </q-page-sticky>
+    <add-person-dialog/>
   </q-page>
 </template>
 
 <script>
 import { ref } from 'vue';
 import { onMounted } from 'vue';
+import Draggable from 'vuedraggable';
 import useSharedPerson from 'src/pages/challenge-two/_composable/usePerson';
 import PersonItem from 'src/pages/challenge-two/_components/person-item.vue';
+import AddPersonDialog from 'src/pages/challenge-two/_components/add-person-dialog.vue';
 export default {
   name: 'ChallengeTwo',
   components: {
     PersonItem,
+    Draggable,
+    AddPersonDialog,
   },
   setup() {
     const tasks = ref([
@@ -76,12 +91,12 @@ export default {
     ]);
 
     //-----------
-    const { fetchingPersons, persons, toggleDialog } = useSharedPerson();
+    const { fetchingPersons, persons , toggleDialog} = useSharedPerson();
     onMounted(() => {
       fetchingPersons();
     });
 
-    return { tasks, fetchingPersons, persons, toggleDialog };
+    return { tasks, fetchingPersons, persons , toggleDialog};
   },
 };
 </script>
