@@ -26,7 +26,7 @@ export default configure((/* ctx */) => {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
     boot: [
-      
+
       'axios',
     ],
 
@@ -75,7 +75,7 @@ export default configure((/* ctx */) => {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
-      
+
       // vitePlugins: [
       //   [ 'package-name', { ..options.. } ]
       // ]
@@ -110,8 +110,8 @@ export default configure((/* ctx */) => {
     animations: [],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#sourcefiles
-    // sourceFiles: {
-    //   rootComponent: 'src/App.vue',
+    sourceFiles: {
+      rootComponent: 'src/app.vue',
     //   router: 'src/router/index',
     //   store: 'src/store/index',
     //   pwaRegisterServiceWorker: 'src-pwa/register-service-worker',
@@ -120,7 +120,7 @@ export default configure((/* ctx */) => {
     //   electronMain: 'src-electron/electron-main',
     //   electronPreload: 'src-electron/electron-preload'
     //   bexManifestFile: 'src-bex/manifest.json
-    // },
+    },
 
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {
