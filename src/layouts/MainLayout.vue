@@ -41,12 +41,32 @@ import EssentialLink from 'components/EssentialLink.vue';
 
 const linksList = [
   {
-    title: 'Challenge description',
-    caption: 'Start here',
-    icon: 'school',
-    link: '/',
+    title: 'Challenge 1',
+    caption: 'Navigation & routing',
+    icon: 'my_location',
+    link:
+      process.env.VUE_ROUTER_MODE === 'history'
+        ? '/challenge-1'
+        : '/#/challenge-1',
   },
-  // TODO: Add here something
+  {
+    title: 'Challenge 2',
+    caption: 'Address book',
+    icon: 'list',
+    link:
+      process.env.VUE_ROUTER_MODE === 'history'
+        ? '/challenge-2'
+        : '/#/challenge-2',
+  },
+  {
+    title: 'Challenge 3',
+    caption: 'Offline webapp',
+    icon: 'app_blocking',
+    link:
+      process.env.VUE_ROUTER_MODE === 'history'
+        ? '/challenge-3'
+        : '/#/challenge-3',
+  },
 ];
 
 export default defineComponent({
