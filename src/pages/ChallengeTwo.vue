@@ -46,7 +46,7 @@
           name="firstname"
           placeholder="Enter first name"
         />
-        <span>{{ errors.firstname }}</span>
+        <span class="text-red">{{ errors.firstname }}</span>
       </div>
 
       <div class="q-mt-sm">
@@ -57,7 +57,7 @@
           name="lastname"
           placeholder="Enter last name"
         />
-        <span>{{ errors.lastname }}</span>
+        <span class="text-red">{{ errors.lastname }}</span>
       </div>
 
       <div class="q-mt-sm">
@@ -68,7 +68,7 @@
           name="email"
           placeholder="Enter email"
         />
-        <span>{{ errors.email }}</span>
+        <span class="text-red">{{ errors.email }}</span>
       </div>
       <q-btn type="submit" class="q-mt-sm">Submit</q-btn>
     </form>
